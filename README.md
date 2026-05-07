@@ -1,0 +1,114 @@
+# Planet Pop – Embedded Bubble Shooter Game
+
+## Project Overview
+
+Planet Pop is an embedded bubble shooter game developed using an STM32 microcontroller platform. The project combines real-time gameplay logic with hardware interaction, using an SPI LCD display, joystick input, buzzer feedback, and external LEDs.
+
+The game was inspired by classic arcade bubble shooter games and was designed using a modular software structure to separate game logic from hardware-specific drivers. Throughout development, the project evolved from a simple static prototype into a more polished and interactive game with animations, dynamic backgrounds, and gameplay balancing features.
+
+---
+
+## Main Features
+
+- Bubble shooting and directional aiming using a joystick
+- Bubble collision detection and neighbour-based attachment
+- Bubble matching and popping system
+- Dynamic grid management
+- Immediate win condition detection
+- Warning line and game-over system
+- Next bubble preview system
+- Bubble swap functionality
+- Row drop mechanic after repeated missed shots
+- Space-themed graphical interface (“Planet Pop”)
+- Moving parallax star background
+- Bubble pop animation effects
+- Buzzer sound feedback
+- External LED feedback system:
+  - Green LED → bubble pops and win indication
+  - Red LED → warning and game-over indication
+
+---
+
+## Software Architecture
+
+The project follows a modular software engineering approach where game logic is separated from hardware drivers.
+
+### Core Modules
+
+| File / Module | Purpose |
+|---|---|
+| `BubblePopEngine.c / .h` | Main game logic, rendering, and gameplay systems |
+| `main.c` | Main execution loop |
+| `gpio.c` | Button and LED configuration |
+| `LCD.c / LCD.h` | Graphics rendering functions |
+| `PWM.c / PWM.h` | PWM control |
+| `Buzzer.c / Buzzer.h` | Audio feedback |
+| `rng.c / rng.h` | Random colour generation |
+
+---
+
+## Technical Features
+
+### Collision Detection
+Bubble collision detection uses squared-distance calculations to improve efficiency and avoid expensive square root operations.
+
+### Bubble Matching
+Connected bubbles are detected using neighbour traversal logic to identify valid groups for popping.
+
+### Dynamic Gameplay
+The game increases in difficulty using:
+- Row dropping after repeated missed shots
+- Increasing grid pressure
+- Warning line detection
+
+### Visual Effects
+Animations and moving background elements were added to improve visual feedback and create a more engaging user experience.
+
+---
+
+## Hardware Used
+
+- STM32 Nucleo board
+- ST7789 SPI LCD Display
+- Joystick module
+- Passive buzzer
+- External LEDs
+- Breadboard and resistors
+
+---
+
+## Controls
+
+| Input | Function |
+|---|---|
+| Joystick movement | Aim |
+| Joystick press (PC3) | Shoot |
+| PC8 button | Swap current and next bubble |
+
+---
+
+## Development Progress
+
+The project evolved through several stages:
+
+1. Initial system setup and hardware integration
+2. First playable bubble shooter prototype
+3. Gameplay balancing and logic refinement
+4. Visual theme experimentation (desert, jungle, and space)
+5. Final gameplay enhancements, animations, and hardware feedback
+
+The final design selected was a space-themed environment due to its clarity and suitability for the display limitations of the embedded system.
+
+---
+
+## Final Outcome
+
+The final system combines embedded hardware interaction, real-time gameplay logic, animations, sound, and visual design into a complete interactive game experience.
+
+This project demonstrates:
+- Embedded systems programming
+- Modular software engineering
+- Real-time game development
+- Hardware/software integration
+- Debugging and optimisation
+- User-focused design and iterative development
